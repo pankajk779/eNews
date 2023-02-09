@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearlayout_latest_news"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollview_latestnews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_heading_begin_main_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="12dp"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_heading_end_main_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="12dp"/>
+
+            <ImageView
+                android:id="@+id/imageview_layoutlatestnews_bannerimage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_layout_main_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/button_background_translucent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="Heading"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/imageview_layoutlatestnews_bannerimage"
+                app:layout_constraintStart_toStartOf="@id/guideline_heading_begin_main_fragment" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_latestNews_statusCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@color/white"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_layout_main_heading"
+                app:layout_constraintStart_toEndOf="@id/tv_layout_main_heading"
+                app:layout_constraintTop_toTopOf="@id/tv_layout_main_heading">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
+
+                    <ProgressBar
+                        android:id="@+id/status_progressBar"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:id="@+id/status_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="loading..."
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/text_view_main_fragment_main_title"
+                android:textSize="25sp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@id/imageview_layoutlatestnews_bannerimage"
+                app:layout_constraintStart_toStartOf="@id/guideline_heading_begin_main_fragment"
+                app:layout_constraintEnd_toStartOf="@id/guideline_heading_end_main_fragment"/>
+            <TextView
+                android:id="@+id/tv_laterstNews_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="2"
+                android:maxLines="2"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_news"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="start"
+                android:text="Top Story"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/guideline_heading_end_main_fragment"
+                app:layout_constraintStart_toEndOf="@id/guideline_heading_begin_main_fragment"
+                app:layout_constraintTop_toBottomOf="@id/tv_laterstNews_error" />
+
+            <LinearLayout
+                android:id="@+id/divider_1"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/divider_layout_height"
+                android:background="@color/black"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@id/guideline_heading_end_main_fragment"
+                app:layout_constraintStart_toEndOf="@id/guideline_heading_begin_main_fragment"
+                app:layout_constraintTop_toBottomOf="@id/tv_news" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/firstcard_latestnews"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:elevation="0dp"
+                android:visibility="visible"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
+                app:layout_constraintDimensionRatio=""
+                app:layout_constraintEnd_toStartOf="@id/guideline_heading_end_main_fragment"
+                app:layout_constraintStart_toEndOf="@id/guideline_heading_begin_main_fragment"
+                app:layout_constraintTop_toBottomOf="@id/divider_1">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:elevation="0dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/iv_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_source_card"
+                        app:layout_constraintDimensionRatio="16:9"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageView_topStory"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/grey_200"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="h,16:9"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <TextView
+                        android:id="@+id/tv_source_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        android:text="NDTV"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_headline_card"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_card" />
+
+                    <TextView
+                        android:id="@+id/tv_headline_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Sensex ends 304 pts lower at 60,353, Nifty below 18K; Bajaj Finance down 7%"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_time_card"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_source_card" />
+
+                    <TextView
+                        android:id="@+id/tv_time_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="2 hours ago"
+                        android:textColor="@color/grey"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_source_card"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_headline_card" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/divider_2"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/divider_layout_height"
+                android:layout_marginTop="16dp"
+                android:background="@color/black"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/guideline_heading_end_main_fragment"
+                app:layout_constraintStart_toEndOf="@id/guideline_heading_begin_main_fragment"
+                app:layout_constraintTop_toBottomOf="@id/firstcard_latestnews" />
+
+            <TextView
+                android:id="@+id/tv_layout_news_headlines"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:maxLines="1"
+                android:text="Headlines"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/guideline_heading_end_main_fragment"
+                app:layout_constraintStart_toEndOf="@id/guideline_heading_begin_main_fragment"
+                app:layout_constraintTop_toBottomOf="@id/divider_2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_row_recyclerview_newsarticle_newsheadlines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:elevation="0dp"
+                android:nestedScrollingEnabled="false"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@id/guideline_heading_end_main_fragment"
+                app:layout_constraintStart_toEndOf="@id/guideline_heading_begin_main_fragment"
+                app:layout_constraintTop_toBottomOf="@id/tv_layout_news_headlines" />
+
+            <LinearLayout
+                android:id="@+id/divider_3"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/divider_layout_height"
+                android:layout_marginTop="16dp"
+                android:background="@color/black"
+                android:orientation="horizontal"
+
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/guideline_heading_end_main_fragment"
+                app:layout_constraintStart_toEndOf="@id/guideline_heading_begin_main_fragment"
+                app:layout_constraintTop_toBottomOf="@id/recyclerview_row_recyclerview_newsarticle_newsheadlines" />
+
+            <TextView
+                android:id="@+id/tv_layout_news_savedarticles"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:maxLines="1"
+                android:text="Saved Articles"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/guideline_heading_end_main_fragment"
+                app:layout_constraintStart_toEndOf="@id/guideline_heading_begin_main_fragment"
+                app:layout_constraintTop_toBottomOf="@id/divider_3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_row_recyclerview_newsarticle_savednews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/guideline_heading_end_main_fragment"
+                app:layout_constraintStart_toEndOf="@id/guideline_heading_begin_main_fragment"
+                app:layout_constraintTop_toBottomOf="@id/tv_layout_news_savedarticles" />
+
+
+            <Space
+                android:id="@+id/spaceBottom"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recyclerview_row_recyclerview_newsarticle_savednews"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

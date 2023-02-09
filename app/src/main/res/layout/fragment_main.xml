@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout_parent_main_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MainFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout_main_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:elevation="0dp">
+
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingtoolbarlayout_main_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:titleEnabled="false"
+                app:collapsedTitleTextColor="@color/white"
+                app:expandedTitleTextColor="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <FrameLayout
+                    android:id="@+id/framelayout_collapsable_mainfragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageview_frame_collapsable_mainfragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/frame_background"/>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/toolbar_title_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="eNEWS"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton_mainFragment_settings"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginRight="8dp"
+                            android:background="@android:color/transparent"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_baseline_settings_24"
+                            app:layout_constraintBottom_toBottomOf="@id/toolbar_title_tv"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/toolbar_title_tv" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.Toolbar>
+                </FrameLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageview_frame_appbarlayout_mainfragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame_background" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintlayout_appbarlayout_mainfragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout_mainFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    app:tabMode="scrollable"
+                    android:clipToPadding="false"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    app:tabSelectedTextColor="@color/black"
+                    app:tabTextColor="@color/blue_400"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <!--                <include-->
+<!--                    android:id="@+id/main_scrollview"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    layout="@layout/layout_scrollview_appbar"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"/>-->
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager_mainfragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-160dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
